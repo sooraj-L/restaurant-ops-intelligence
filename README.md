@@ -3,7 +3,7 @@
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow)
 ![Python](https://img.shields.io/badge/Python-Data%20Generation-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-Analysis-orange)
-![Status](https://img.shields.io/badge/Status-In%20Progress-green)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ## Overview
 An end-to-end data analytics project built around real fast food restaurant operations. The goal is to help store managers make better decisions about staffing, food waste, and sales targets using data — not gut feeling.
@@ -28,8 +28,8 @@ Most of these decisions are based on experience rather than data. This project b
 | Data Cleaning | Python | ✅ Complete |
 | SQL Analysis | MySQL | ✅ Complete |
 | Sales Dashboard | Power BI | ✅ Complete |
-| Labour Dashboard | Power BI | 🔄 In Progress |
-| Waste Dashboard | Power BI | ⏳ Coming Soon |
+| Labour Dashboard | Power BI | ✅ Complete |
+| Waste Dashboard | Power BI | ✅ Complete |
 
 ---
 
@@ -63,11 +63,25 @@ Most of these decisions are based on experience rather than data. This project b
 
 ---
 
-## Key Insights (Sales Dashboard)
+## Key Insights
+
+### Sales
 - **Lunch and Dinner** shifts drive the highest revenue across all seasons
-- **Summer** season consistently outperforms all other seasons
+- **Summer** season consistently outperforms all other seasons in sales
 - **Weekday** sales (54%) outpace Weekend sales (46%) due to higher shift volume
 - Sales performance tracks closely to target with minor seasonal variance
+
+### Labour
+- **Lunch and Dinner** shifts have the highest labour cost — reflecting peak hour demand
+- Every shift shows negative staff variance — indicating the restaurant was consistently understaffed
+- **Weekday** labour hours (57.7%) are higher than Weekend (42.3%)
+- Actual labour cost ($682K) came in under target ($728K) across the year
+
+### Waste
+- **Dinner and Lunch** shifts generate the highest waste cost — linked to peak production volume
+- **UHC Expiration** is the top waste reason — indicating over-preparation during busy periods
+- Total waste cost ($113K) exceeded target ($94K) — a key area for operational improvement
+- **Q1** has the lowest waste cost, while **Q3** (Summer) has the highest
 
 ---
 
@@ -91,11 +105,33 @@ Star schema with composite shift_key (date + shift_type):
 - Sales vs Target by Quarter (Clustered Column Chart)
 - Sales by Shift and Day Type (Matrix)
 
-### Page 2 — Labour Intelligence 🔄
-*Coming Soon*
+### Page 2 — Labour Intelligence ✅
+- KPI Cards: Total Labour Cost, Target Labour Cost, Avg Labour %, Labour Cost Variance
+- Labour Cost by Shift (Bar Chart)
+- Labour Cost Trend Over Time (Line Chart)
+- Staff Variance by Shift (Bar Chart)
+- Labour Hours by Day Type (Donut Chart)
+- Labour Cost vs Target by Quarter (Clustered Column Chart)
+- Labour % vs Target (Gauge Chart)
 
-### Page 3 — Waste Intelligence ⏳
-*Coming Soon*
+### Page 3 — Waste Intelligence ✅
+- KPI Cards: Total Waste Cost, Target Waste Cost, Avg Waste %, Waste Cost Variance
+- Waste Cost by Shift (Bar Chart)
+- Waste Cost Trend Over Time (Line Chart)
+- Waste Cost by Reason (Bar Chart)
+- Waste Cost by Day Type (Donut Chart)
+- Waste Cost vs Target by Quarter (Clustered Column Chart)
+- Waste % vs Target (Gauge Chart)
+
+---
+
+## DAX Measures
+27+ measures built across 3 themes including:
+- Total and Average KPIs for Sales, Labour and Waste
+- Variance calculations (Actual vs Target)
+- Achievement % measures
+- Staffing gap analysis (Scheduled vs Actual)
+- Shifts over/under target counts
 
 ---
 
@@ -108,8 +144,8 @@ Star schema with composite shift_key (date + shift_type):
 ---
 
 ## Author
-**Sooraj Shaju**  
-Graduate Certificate in Business Analytics — Cambrian College, Ontario  
+**Sooraj Shaju**
+Graduate Certificate in Business Analytics — Cambrian College, Ontario
 B.Sc. Computer Science — Calicut University
 
 [LinkedIn](https://linkedin.com/in/sooraj77) | [GitHub](https://github.com/sooraj-L) | [Portfolio](https://sooraj-l.github.io)
